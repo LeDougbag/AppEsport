@@ -6,6 +6,8 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <iostream>
+#include <QScrollArea>
+#include "advancedbutton.h"
 
 class TournamentCreation : public QWidget
 {
@@ -17,12 +19,14 @@ private:
     QLabel          *background;
     QLineEdit       *player;
     QLineEdit       *team;
-    QPushButton     *btn;
 
-signals:
+    QLabel          *emptyButton;
+    AdvancedButton  *addPlayer;
+
+    QScrollArea     *scrollArea;
+    QLabel          *scrollBackground;
 
 public slots:
-
     void    confirmPlayer();
 };
 
