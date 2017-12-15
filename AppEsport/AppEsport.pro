@@ -27,11 +27,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    advancedbutton.cpp
+    advancedbutton.cpp \
+    tournamentcreation.cpp
 
 HEADERS += \
         mainwindow.h \
-    advancedbutton.h
+    advancedbutton.h \
+    tournamentcreation.h
 
 FORMS += \
         mainwindow.ui

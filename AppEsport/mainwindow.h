@@ -4,10 +4,9 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QLabel>
-
-namespace Ui {
-class MainWindow;
-}
+#include <iostream>
+#include "advancedbutton.h"
+#include "tournamentcreation.h"
 
 class MainWindow : public QMainWindow
 {
@@ -15,13 +14,17 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
 
 private:
-    Ui::MainWindow  *ui;
+    QLabel              *background;
+    QLabel              *title;
+    QLabel              *emptyButton;
 
-    //QPushButton     *btn;
-    //QLabel          *lab;
+    AdvancedButton      *creerTournois;
+    TournamentCreation  *tournament;
+
+public slots:
+    void    newTournament();
 };
 
 #endif // MAINWINDOW_H

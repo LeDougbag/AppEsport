@@ -32,7 +32,6 @@ AdvancedButton::AdvancedButton(QWidget *parent = 0) : QPushButton(parent)
     textLabel = new QLabel(this);
     textLabel->setFixedSize(this->width(), this->height());
     textLabel->setStyleSheet("qproperty-alignment: AlignCenter;");
-    textLabel->setFont(QFont("GiantRobotArmy Med", 25, QFont::Bold));
 
     updateTimer = new QTimer(this);
     updateTimer->start(16);
@@ -69,7 +68,6 @@ void    AdvancedButton::mousePressEvent(QMouseEvent *e)
 
     if (e->pos().x() < 0 || e->pos().y() < 0 || e->pos().x() > defaultPix.width() || e->pos().y() > defaultPix.height())
     {
-        std::cout << "error press event" << std::endl;
         return;
     }
 
@@ -196,7 +194,6 @@ void    AdvancedButton::update()
             //update the button
             if (mouseLocalPos.x() < 0 || mouseLocalPos.y() < 0 || mouseLocalPos.x() > defaultPix.width() || mouseLocalPos.y() > defaultPix.height())
             {
-                std::cout << "error update" << std::endl;
                 return;
             }
 
@@ -226,7 +223,6 @@ void    AdvancedButton::updateAnimationStatus()
         if (enter == 2)
         {
             hoverMod = false;
-            std::cout << "exiting hover mode" << std::endl;
             background->setPixmap(defaultPix);
         }
     }
@@ -237,7 +233,6 @@ void    AdvancedButton::updateAnimationStatus()
         enter = 0;
         if (leave == 2)
         {
-            std::cout << "entering hover mode" << std::endl;
             hoverMod = true;
             if (hasHoverSound)
                 hoverSound->play();

@@ -10,11 +10,8 @@
 #include <QTimer>
 #include <iostream>
 
-#define MAX_SIZE_RATIO 1.20
+#define MAX_SIZE_RATIO 1.08
 #define NORMAL_RATIO 1.0
-
-extern int g_width;
-extern int g_height;
 
 class AdvancedButton : public QPushButton
 {
