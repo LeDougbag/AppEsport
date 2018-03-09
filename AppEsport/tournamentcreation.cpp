@@ -36,25 +36,79 @@ TournamentCreation::TournamentCreation(QWidget *parent) : QWidget(parent)
     addPlayer->setDefaultPix("../images/bouton ajouter joueur.png");
     addPlayer->setHoverPix("../images/bouton ajouter joueur.png");
 
-    scrollArea = new QScrollArea(this);
+    /*scrollArea = new QScrollArea(this);
     scrollArea->setFixedSize(1200, 400);
     scrollArea->move(200, 350);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     scrollBackground = new QLabel(scrollArea);
-    scrollBackground->setFixedSize(1180, 1200);
+    scrollBackground->setFixedSize(100, 100);
     QPixmap fap("../images/fap.jpg");
     fap = fap.scaled(QSize(scrollBackground->width(), scrollBackground->height()), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
     scrollBackground->setPixmap(fap);
 
-    scrollArea->setWidget(scrollBackground);
+    testGrid = new QLabel(scrollArea);
+    testGrid->setFixedSize(100, 100);
+    testGrid->setPixmap(fap);
+
+    grid = new QGridLayout(scrollArea);
+    grid->setVerticalSpacing(1000);
+    grid->setHorizontalSpacing(1000);
+    //grid->SetFixedSize(scrollArea->width(), scrollArea->height());
+    grid->addWidget(scrollBackground, 1, 1);
+    grid->addWidget(testGrid, 4, 1);*/
+
+    //scrollArea->setWidget(scrollBackground);
+
+    scrollWidget = new QWidget;
+    scrollWidget->setFixedSize(1200, 300);
+
+    /*scrollBackground = new QLabel(scrollWidget);
+    QImage image("../images/BackgroundTest.png");
+    image = image.scaled(QSize(1200, 1000), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    scrollBackground->setPixmap(QPixmap::fromImage(image));*/
+
+    scrollArea = new QScrollArea(this);
+    scrollArea->setFixedSize(1220, 400);
+    scrollArea->move(200, 350);
+    scrollArea->setBackgroundRole(QPalette::Dark);
+    scrollArea->setWidget(scrollWidget);
+    scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
     connect(addPlayer, SIGNAL(clicked(bool)), this, SLOT(confirmPlayer()));
 }
 
+void    TournamentCreation::updateScrollArea()
+{
+    scrollWidget = new QWidget;
+    scrollWidget->setFixedSize(1200, playerList.count() * 70);
+    //scrollBackground->setParent(scrollWidget);
+
+    int pos = 0;
+
+    for (int i = 0; i < playerList.count(); i++)
+    {
+        QLabel *temp = new QLabel;// = new QLabel(scrollWidget);
+        temp = playerList.at(i);
+        temp->setParent(scrollWidget);
+        temp->move(0, pos);
+        pos += 70;
+    }
+
+    scrollArea->setWidget(scrollWidget);
+}
+
 void    TournamentCreation::confirmPlayer()
 {
-    std::cout << "Player " << player->text().toStdString() << " in the team " << team->text().toStdString() << " added." << std::endl;
+    QLabel *temp = new QLabel;
+    temp->setStyleSheet("background-color: red; border: 1px solid black;");
+    temp->setFixedSize(1200, 70);
+    temp->setFont(QFont("Arial", 20, QFont::Bold));
+    temp->setText(player->text() + " " + team->text());
+    playerList.push_back(temp);
+    updateScrollArea();
+
+    //qDebug() << "Player " << player->text().toStdString() << " in the team " << team->text().toStdString() << " added.";
     player->clear();
     team->clear();
 }

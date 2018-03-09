@@ -7,27 +7,33 @@
 #include <QPushButton>
 #include <iostream>
 #include <QScrollArea>
+#include <QGridLayout>
 #include "advancedbutton.h"
 
 class TournamentCreation : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit TournamentCreation(QWidget *parent = nullptr);
 
 private:
-    QLabel          *background;
-    QLineEdit       *player;
-    QLineEdit       *team;
+    void                updateScrollArea();
 
-    QLabel          *emptyButton;
-    AdvancedButton  *addPlayer;
+    QLabel              *background;
+    QLineEdit           *player;
+    QLineEdit           *team;
 
-    QScrollArea     *scrollArea;
-    QLabel          *scrollBackground;
+    QLabel              *emptyButton;
+    AdvancedButton      *addPlayer;
+
+    QWidget             *scrollWidget;
+    QScrollArea         *scrollArea;
+    QLabel              *scrollBackground;
+    QVector<QLabel *>   playerList;
 
 public slots:
-    void    confirmPlayer();
+    void                confirmPlayer();
 };
 
 #endif // TOURNAMENTCREATION_H
