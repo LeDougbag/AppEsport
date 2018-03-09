@@ -88,8 +88,8 @@ void    TournamentCreation::updateScrollArea()
 
     for (int i = 0; i < playerList.count(); i++)
     {
-        QLabel *temp = new QLabel;// = new QLabel(scrollWidget);
-        temp = playerList.at(i);
+        PlayerSlot *temp = new PlayerSlot(playerList.at(i));// = new QLabel(scrollWidget);
+        //temp = playerList.at(i);
         temp->setParent(scrollWidget);
         temp->move(0, pos);
         pos += 70;
@@ -100,11 +100,11 @@ void    TournamentCreation::updateScrollArea()
 
 void    TournamentCreation::confirmPlayer()
 {
-    QLabel *temp = new QLabel;
-    temp->setStyleSheet("background-color: red; border: 1px solid black;");
-    temp->setFixedSize(1200, 70);
-    temp->setFont(QFont("OPTIBelwe-Medium", 20, QFont::Bold));
-    temp->setText("   " + player->text() + " " + team->text());
+    PlayerSlot *temp = new PlayerSlot(1, player->text(), team->text());
+    //temp->setStyleSheet("background-color: red; border: 1px solid black;");
+    //temp->setFixedSize(1200, 70);
+    //temp->);
+    //temp->setText("   " + player->text() + " " + team->text());
     playerList.push_back(temp);
     updateScrollArea();
 

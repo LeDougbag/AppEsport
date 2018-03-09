@@ -9,6 +9,7 @@
 #include <QScrollArea>
 #include <QGridLayout>
 #include "advancedbutton.h"
+#include "playerslot.h"
 
 class TournamentCreation : public QWidget
 {
@@ -30,7 +31,7 @@ private:
     QWidget             *scrollWidget;
     QScrollArea         *scrollArea;
     QLabel              *scrollBackground;
-    QVector<QLabel *>   playerList;
+    QVector<PlayerSlot *>   playerList;
 
 public slots:
     void                confirmPlayer();

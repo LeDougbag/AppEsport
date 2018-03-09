@@ -9,12 +9,15 @@
 class PlayerSlot : public QWidget
 {
 public:
-    PlayerSlot(QWidget *parent = Q_NULLPTR, int _id, QString _name, QString _team);
+    PlayerSlot(int _id, QString _name, QString _team);
+    PlayerSlot(PlayerSlot* const&player);
 
 private:
     int             id;
     QString         name;
     QString         team;
+    QLabel          *nameLabel;
+    QLabel          *teamLabel;
     QLabel          *background;
     QLabel          *textString;
     QLabel          *mana;
