@@ -28,12 +28,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     advancedbutton.cpp \
-    tournamentcreation.cpp
+    tournamentcreation.cpp \
+    playerslot.cpp
 
 HEADERS += \
         mainwindow.h \
     advancedbutton.h \
-    tournamentcreation.h
+    tournamentcreation.h \
+    playerslot.h
 
 FORMS += \
         mainwindow.ui

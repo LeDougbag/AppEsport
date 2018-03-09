@@ -13,13 +13,13 @@ TournamentCreation::TournamentCreation(QWidget *parent) : QWidget(parent)
     player = new QLineEdit(this);
     player->setFixedSize(400, 70);
     player->move(200, 180);
-    player->setFont(QFont("Arial", 25, QFont::Bold));
+    player->setFont(QFont("OPTIBelwe-Medium", 25, QFont::Bold));
     player->setStyleSheet("background-color: transparent;");
 
     team = new QLineEdit(this);
     team->setFixedSize(400, 70);
     team->move(700, 180);
-    team->setFont(QFont("Arial", 25, QFont::Bold));
+    team->setFont(QFont("OPTIBelwe-Medium", 25, QFont::Bold));
     team->setStyleSheet("background-color: transparent;");
 
     QPixmap ebutton("../images/bouton vide.png");
@@ -103,8 +103,8 @@ void    TournamentCreation::confirmPlayer()
     QLabel *temp = new QLabel;
     temp->setStyleSheet("background-color: red; border: 1px solid black;");
     temp->setFixedSize(1200, 70);
-    temp->setFont(QFont("Arial", 20, QFont::Bold));
-    temp->setText(player->text() + " " + team->text());
+    temp->setFont(QFont("OPTIBelwe-Medium", 20, QFont::Bold));
+    temp->setText("   " + player->text() + " " + team->text());
     playerList.push_back(temp);
     updateScrollArea();
 
